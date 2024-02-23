@@ -1,0 +1,49 @@
+/* Basic */
+input[type="text"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--theme-font-color);
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 1px solid var(--theme-font-color);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Hover
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+textarea:hover,
+select:hover {
+  border-color: #fff;
+} */
+
+/* Focus
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #fff; 
+  box-shadow: 0 0 0 0.2rem rgba(253, 253, 253, 0.25);
+} */
+
+/* Disabled */
+input[type="text"]:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: #e9ecef;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.2em;
+  font-style: italic;
+}

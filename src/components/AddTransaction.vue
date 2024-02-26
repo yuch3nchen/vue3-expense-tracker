@@ -56,6 +56,7 @@ const onSubmit = () => {
 
   text.value = "";
   amount.value = "";
+  posNeg.value = "-";
 };
 
 const posNegSwitch = () => {

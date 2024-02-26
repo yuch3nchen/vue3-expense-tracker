@@ -82,7 +82,6 @@ const saveToLocalStorage = () => {
 };
 
 // onMounted
-
 onMounted(() => {
   const savedTransactions = JSON.parse(
     localStorage.getItem("vet-transactions")
@@ -96,7 +95,7 @@ onMounted(() => {
 
 <style scoped>
 .container {
-  width: 70vw;
+  width: 90vw;
   height: 90vh;
   max-width: 800px;
   position: absolute;
@@ -112,6 +111,7 @@ onMounted(() => {
 
   @media screen and (min-width: 767px) {
     height: 50vh;
+    width: 70vw;
     flex-direction: row;
   }
 }
@@ -136,12 +136,12 @@ onMounted(() => {
   height: 50%;
   flex-direction: column;
 
-  @media screen and (min-width: 992px) {
-    flex: 1 0 30%;
-  }
-
   @media screen and (min-width: 767px) {
     height: 100%;
+  }
+
+  @media screen and (min-width: 992px) {
+    flex: 1 0 30%;
   }
 }
 </style>

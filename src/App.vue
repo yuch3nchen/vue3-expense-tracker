@@ -1,92 +1,95 @@
 <template>
   <div class="container bg-theme d-flex justify-content-between">
     <div class="sidebar d-flex justify-content-between">
-      <div class="inc-exp-container d-flex justify-content-between mb-1">
-        <div class="income">
-          <h3 class="mb-4 h3">Income</h3>
-          <p class="plus h5">$100</p>
-        </div>
-        <div class="expense">
-          <h3 class="mb-4 h3">Expense</h3>
-          <p class="minus h5">-$50</p>
-        </div>
-      </div>
-      <div class="history-container d-flex justify-content-between">
-        <h2 class="h2">History</h2>
-        <ul class="list">
-          <li class="d-flex justify-content-between">
-            Shopping
-            <span class="minus">-$50</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-          <li class="d-flex justify-content-between">
-            Salary
-            <span class="plus">$100</span>
-          </li>
-        </ul>
-      </div>
+      <IncomeExpense :income="Number(income)" :expense="Number(expense)" />
+      <TransactionList
+        :transactions="transactions"
+        @transaction-deleted="handleTransactionDeleted"
+      />
     </div>
     <div class="main d-flex justify-content-between">
-      <div class="balance-container">
-        <h2 class="h2">Balance</h2>
-        <h1 class="balance text-end plus h1">$1000</h1>
-      </div>
-      <div class="add-container">
-        <h2 class="mb-3 h2">Add new transaction</h2>
-        <form @onSubmit.prevent>
-          <div class="form-container d-flex">
-            <div class="form-control">
-              <label for="text"
-                >Text <input type="text" id="text" placeholder="Enter text..."
-              /></label>
-            </div>
-            <div class="form-control">
-              <label for="amount"
-                >Amount
-                <input type="text" id="amount" />
-              </label>
-            </div>
-            <button class="align-self-end">ADD</button>
-          </div>
-        </form>
-      </div>
+      <Balance :total="Number(total)" />
+      <AddTransaction @transaction-submitted="handleTransactionSubmitted" />
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import IncomeExpense from "./components/IncomeExpense.vue";
+import TransactionList from "./components/TransactionList.vue";
+import Balance from "./components/Balance.vue";
+import AddTransaction from "./components/AddTransaction.vue";
+
+import { computed, onMounted, ref } from "vue";
+
+// 帳務紀錄
+const transactions = ref([]);
+
+// 新增帳務
+const handleTransactionSubmitted = (newData) => {
+  transactions.value.push({
+    id: generateUniqueId(),
+    text: newData.text,
+    amount: newData.amount,
+  });
+
+  saveToLocalStorage();
+};
+
+// 總額顯示
+// 第一個 return 作為 computed 屬性回傳；第二個 return 作為 .reduce() 回傳值
+const total = computed(() => {
+  return transactions.value.reduce((acc, transaction) => {
+    return acc + transaction.amount;
+  }, 0);
+});
+
+// 收入顯示
+const income = computed(() => {
+  return transactions.value
+    .filter((transaction) => transaction.amount > 0)
+    .reduce((acc, transaction) => {
+      return acc + transaction.amount;
+    }, 0);
+});
+
+// 支出顯示
+const expense = computed(() => {
+  return transactions.value
+    .filter((transaction) => transaction.amount < 0)
+    .reduce((acc, transaction) => {
+      return acc + transaction.amount;
+    }, 0);
+});
+
+// 刪除項目
+const handleTransactionDeleted = (id) => {
+  transactions.value = transactions.value.filter(
+    (transaction) => transaction.id !== id
+  );
+
+  saveToLocalStorage();
+};
+
+// ID產生
+const generateUniqueId = () => {
+  return Math.floor(Math.random() * 1000000);
+};
+
+// LocalStorage
+const saveToLocalStorage = () => {
+  localStorage.setItem("vet-transactions", JSON.stringify(transactions.value));
+};
+
+// onMounted
+
+onMounted(() => {
+  const savedTransactions = JSON.parse(
+    localStorage.getItem("vet-transactions")
+  );
+
+  if (savedTransactions) {
+    transactions.value = savedTransactions;
+  }
+});
+</script>

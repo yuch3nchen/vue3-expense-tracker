@@ -23,3 +23,26 @@ const props = defineProps({
   },
 });
 </script>
+
+<style scoped>
+.inc-exp-container {
+  border: 1px dashed var(--theme-font-color);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: center;
+
+  @media screen and (min-width: 349px) {
+    flex-direction: row;
+  }
+}
+
+.inc-exp-container > div {
+  flex: 1;
+}
+</style>

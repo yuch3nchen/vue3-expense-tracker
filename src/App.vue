@@ -93,3 +93,55 @@ onMounted(() => {
   }
 });
 </script>
+
+<style scoped>
+.container {
+  width: 70vw;
+  height: 90vh;
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 1.5rem 0.75rem;
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  gap: 1.25rem;
+  flex-direction: column;
+
+  @media screen and (min-width: 767px) {
+    height: 50vh;
+    flex-direction: row;
+  }
+}
+
+.main {
+  flex: 1 0 40%;
+  height: 50%;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media screen and (min-width: 767px) {
+    height: 100%;
+  }
+
+  @media screen and (min-width: 992px) {
+    flex: 1 0 60%;
+  }
+}
+
+.sidebar {
+  flex: 1 0 50%;
+  height: 50%;
+  flex-direction: column;
+
+  @media screen and (min-width: 992px) {
+    flex: 1 0 30%;
+  }
+
+  @media screen and (min-width: 767px) {
+    height: 100%;
+  }
+}
+</style>

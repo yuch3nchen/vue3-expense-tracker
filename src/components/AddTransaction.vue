@@ -68,3 +68,18 @@ const posNegSwitch = () => {
   }
 };
 </script>
+
+<style scoped>
+.form-container {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.posNeg-btn {
+  padding: 0.25rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  min-width: 15%;
+}
+</style>

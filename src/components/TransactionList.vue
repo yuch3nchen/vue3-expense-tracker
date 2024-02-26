@@ -33,3 +33,46 @@ const deleteTransaction = (id) => {
   emit("transactionDeleted", id);
 };
 </script>
+
+<style scoped>
+.history-container {
+  height: 70%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list {
+  overflow-y: scroll;
+}
+
+.list li {
+  padding: 0.25rem 0.5rem;
+  position: relative;
+}
+
+.list li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.delete-btn {
+  padding: 0 0.5rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-100%, -50%);
+  border: none;
+  border-radius: 0%;
+  color: #e32636;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: transparent;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+  color: #e32636;
+}
+</style>

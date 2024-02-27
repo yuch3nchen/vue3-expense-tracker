@@ -96,13 +96,13 @@ onMounted(() => {
 <style scoped>
 .container {
   width: 90vw;
-  height: 90vh;
+  height: 100%;
   max-width: 800px;
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
-  padding: 1.5rem 0.75rem;
+  transform: translate(-50%, -50%);
+  padding: 1rem 0.75rem;
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
@@ -112,13 +112,14 @@ onMounted(() => {
   @media screen and (min-width: 767px) {
     height: 50vh;
     width: 70vw;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     flex-direction: row;
   }
 }
 
 .main {
   flex: 1 0 40%;
-  height: 50%;
   flex-direction: column;
   gap: 1.5rem;
 
@@ -133,7 +134,6 @@ onMounted(() => {
 
 .sidebar {
   flex: 1 0 50%;
-  height: 50%;
   flex-direction: column;
 
   @media screen and (min-width: 767px) {

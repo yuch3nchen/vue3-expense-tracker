@@ -1,6 +1,8 @@
 :root {
   /* Variables */
   --theme-font-color: rgba(255, 255, 255, 0.87);
+  --theme-success-color:#98FB98;
+  --theme-danger-color:#E32636;
 
   font-family: 'Fjalla One', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -8,13 +10,12 @@
   font-size: 16px;
   font-variant-numeric: tabular-nums;
 
-  color-scheme: light dark;
-  color: var(--theme-font-color);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color: var(--theme-font-color);
 }
 
 * {
@@ -40,28 +41,6 @@ h3{
 
 h4{
   font-size: 1.5rem;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.2); 
-  border-radius: 4px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--theme-font-color); 
-  border-radius: 4px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #fff; 
 }
 
 /* @media (prefers-color-scheme: light) {

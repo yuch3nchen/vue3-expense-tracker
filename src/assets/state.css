@@ -1,7 +1,7 @@
 .plus{
-    color: #98FB98;
+    color: var(--theme-success-color);
 }
 
 .minus{
-    color: #E32636;
+    color: var(--theme-danger-color);
 }

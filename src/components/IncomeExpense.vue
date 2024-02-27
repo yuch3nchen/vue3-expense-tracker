@@ -30,11 +30,11 @@ const props = defineProps({
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   width: 80%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   gap: 0.5rem;
   flex-direction: column;
-  align-items: flex-start;
   align-items: center;
 
   @media screen and (min-width: 349px) {

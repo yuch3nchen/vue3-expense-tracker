@@ -1,11 +1,11 @@
 <template>
   <div class="history-container d-flex">
     <h2 class="h2">History</h2>
-    <ul class="list">
+    <ul class="scrollable-list">
       <li
         v-for="transaction in transactions"
         :key="transaction.id"
-        class="d-flex justify-content-between"
+        class="list-item d-flex justify-content-between"
       >
         {{ transaction.text }}
         <span :class="transaction.amount < 0 ? 'minus' : 'plus'"
@@ -41,16 +41,16 @@ const deleteTransaction = (id) => {
   gap: 1rem;
 }
 
-.list {
+.scrollable-list {
   overflow-y: scroll;
 }
 
-.list li {
+.list-item {
   padding: 0.25rem 0.5rem;
   position: relative;
 }
 
-.list li:not(:last-child) {
+.list-item:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -62,7 +62,7 @@ const deleteTransaction = (id) => {
   transform: translate(-100%, -50%);
   border: none;
   border-radius: 0%;
-  color: #e32636;
+  color: var(--theme-danger-color);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -71,8 +71,8 @@ const deleteTransaction = (id) => {
   background-color: transparent;
 }
 
-.list li:hover .delete-btn {
+.list-item:hover .delete-btn {
   opacity: 1;
-  color: #e32636;
+  color: var(--theme-danger-color);
 }
 </style>

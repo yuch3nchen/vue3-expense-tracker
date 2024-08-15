@@ -12,7 +12,7 @@ Here's a sneak peek of our Expense Tracker in action:
 
 ### Mobile View
 
-![Mobile View of Expense Tracker](/screenshots/app-screenshot-mobile.png)
+<img src="screenshots/app-screenshot-mobile.png" width="300" />
 
 ## Features
 

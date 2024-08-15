@@ -24,13 +24,11 @@ Here's a sneak peek of our Expense Tracker in action:
 - Responsive design: Adapts to devices with various screen sizes
 - Local data storage: Utilizes localStorage to save transaction data
 
-## Tech Stack
+## Technology Stack
 
-- Vue 3
-- Vite
+- Vue.js 3.4.15
+- Vite 5.1.0
 - Vue Composition API
-- CSS
-- LocalStorage API
 
 ## Installation
 

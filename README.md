@@ -1,5 +1,8 @@
 # Vue 3 Expense Tracker
 
+![image](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+![image](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+
 A modern personal expense tracking application developed with Vue 3 and Vite, focusing on user experience and efficient financial management.
 
 ## Preview
@@ -87,7 +90,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-[MIT LICENSE](LICENSE)
+This project is open source and available under the [MIT LICENSE](LICENSE)
 
 ## Contact
 

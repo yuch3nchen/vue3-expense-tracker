@@ -27,6 +27,10 @@ Here's a sneak peek of our Expense Tracker in action:
 - Responsive design: Adapts to devices with various screen sizes
 - Local data storage: Utilizes localStorage to save transaction data
 
+## Live Demo
+
+[Try Expense Tracker](https://yuch3nchen.github.io/vue3-expense-tracker/)
+
 ## Technology Stack
 
 - Vue.js 3.4.15

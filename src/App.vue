@@ -102,7 +102,7 @@ onMounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1rem 0.75rem;
+  padding: 5rem 0.75rem 2.5rem;
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
